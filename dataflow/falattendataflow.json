@@ -21,11 +21,7 @@
 					"name": "sink1"
 				}
 			],
-			"transformations": [
-				{
-					"name": "flatten1"
-				}
-			],
+			"transformations": [],
 			"scriptLines": [
 				"source(output(",
 				"          id as string,",
@@ -38,17 +34,7 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'singleDocument') ~> empjson",
-				"empjson foldDown(unroll(),",
-				"     mapColumn(",
-				"          id,",
-				"          name,",
-				"          skill,",
-				"          address,",
-				"          contact",
-				"     ),",
-				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> flatten1",
-				"flatten1 sink(allowSchemaDrift: true,",
+				"empjson sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     partitionFileNames:['son.csv'],",
 				"     skipDuplicateMapInputs: true,",
