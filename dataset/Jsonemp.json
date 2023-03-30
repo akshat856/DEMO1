@@ -1,0 +1,62 @@
+{
+	"name": "Jsonemp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "firstlinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "jso1.json",
+				"folderPath": "input",
+				"container": "adfdemo1"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"skill": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"address": {
+					"type": "object",
+					"properties": {
+						"state": {
+							"type": "string"
+						},
+						"country": {
+							"type": "string"
+						},
+						"zipcode": {
+							"type": "string"
+						}
+					}
+				},
+				"contact": {
+					"type": "object",
+					"properties": {
+						"mobile": {
+							"type": "string"
+						},
+						"email": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
